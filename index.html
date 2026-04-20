@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Belastinggids Frankrijk 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Mulish:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --height: 92px;
+  --maroon: #800000;
+  --maroon-dk: #600000;
+  --maroon-hi: #a30000;
+  --title-size: 15px;
+  --year-size: 32px;
+  --stamp-width: 118px;
+  --cta-width: 145px;
+  --font-display: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Mulish', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  width:100%;
+  overflow:hidden;
+  font-family:var(--font-body);
+  background:transparent;
+}
+
+/* ── BANNER SHELL ── */
+.banner{
+  width:100%;max-width:970px;
+  height:var(--height);
+  background:rgba(128,0,0,0.05);
+  border:1px solid rgba(128,0,0,0.1);
+  border-radius:6px;
+  display:flex;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+  text-decoration:none;color:inherit;
+}
+
+/* ── LEFT: jaar-stempel ── */
+.stamp{
+  width:var(--stamp-width);flex-shrink:0;
+  background:var(--maroon);
+  color:#fff;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;
+  padding:6px 4px;
+}
+.stamp-label{
+  font-family:var(--font-display);
+  font-size:9px;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;opacity:0.75;
+  margin-bottom:1px;
+}
+.stamp-year{
+  font-family:var(--font-display);
+  font-size:var(--year-size);font-weight:300;line-height:1;
+  letter-spacing:-0.03em;
+  font-variant-numeric:tabular-nums;
+}
+.stamp-sub{
+  font-size:9.5px;font-weight:400;opacity:0.85;
+  letter-spacing:0.02em;margin-top:2px;
+  text-align:center;line-height:1.3;
+}
+.stamp-sub b{font-weight:700}
+
+/* ── MIDDLE: content ── */
+.content{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:8px 14px 8px 18px;
+  min-width:0;
+}
+.title{
+  font-family:var(--font-display);
+  font-size:var(--title-size);font-weight:600;color:var(--maroon);
+  letter-spacing:-0.005em;
+  margin-bottom:3px;
+  line-height:1.2;
+}
+.subtitle{
+  font-size:10.5px;color:#555;line-height:1.4;
+  margin-bottom:6px;
+  font-weight:400;
+}
+.chips{
+  display:flex;gap:5px;flex-wrap:wrap;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--font-display);
+  font-size:9.5px;font-weight:600;color:var(--maroon);
+  background:#fff;
+  border:1px solid rgba(128,0,0,0.15);
+  padding:2px 7px;border-radius:10px;
+  white-space:nowrap;
+  letter-spacing:0.02em;
+}
+.chip::before{
+  content:'';
+  width:5px;height:5px;border-radius:50%;
+  background:var(--maroon);opacity:0.6;
+}
+
+/* ── RIGHT: CTA ── */
+.cta-wrap{
+  width:var(--cta-width);flex-shrink:0;
+  padding:0 12px 0 6px;
+  display:flex;flex-direction:column;
+  align-items:flex-end;justify-content:center;
+  gap:4px;
+}
+.cta-btn{
+  display:inline-block;background:var(--maroon);color:#fff;
+  font-family:var(--font-display);
+  font-size:12px;font-weight:600;text-decoration:none;
+  padding:8px 13px;border-radius:4px;white-space:nowrap;
+  border:1px solid var(--maroon-dk);
+  transition:background 0.2s;
+  letter-spacing:0.005em;
+}
+.banner:hover .cta-btn{background:var(--maroon-hi)}
+.cta-sub{
+  font-family:var(--font-display);
+  font-size:9px;color:rgba(128,0,0,0.55);
+  letter-spacing:0.06em;text-transform:uppercase;
+  text-align:right;font-weight:500;
+}
+
+/* ── Responsief: smal venster ── */
+@media (max-width:640px){
+  .banner{height:auto;min-height:var(--height);flex-wrap:wrap}
+  .stamp{width:100%;flex-direction:row;gap:10px;padding:8px;min-height:46px}
+  .stamp-year{font-size:24px}
+  .stamp-sub{margin-top:0;text-align:left}
+  .content{order:3;width:100%}
+  .cta-wrap{order:2;width:auto;padding:8px;justify-content:flex-end;flex:1}
+}
+
+/* ── Tweaks panel ── */
+#tweaks{
+  position:fixed;bottom:12px;right:12px;
+  width:260px;background:#fff;
+  border:1px solid rgba(128,0,0,0.25);
+  border-radius:6px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.12);
+  font-family:var(--font-body);
+  font-size:12px;color:#333;
+  z-index:9999;
+  display:none;
+  overflow:hidden;
+}
+#tweaks.on{display:block}
+#tweaks .head{
+  background:var(--maroon);color:#fff;
+  padding:8px 12px;
+  font-family:var(--font-display);
+  font-weight:600;font-size:12px;letter-spacing:0.04em;
+  display:flex;align-items:center;justify-content:space-between;
+}
+#tweaks .body{padding:12px;display:flex;flex-direction:column;gap:10px}
+#tweaks label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;color:#555}
+#tweaks label .row{display:flex;align-items:center;gap:8px}
+#tweaks input[type=range]{flex:1;accent-color:var(--maroon)}
+#tweaks input[type=text],#tweaks input[type=url]{
+  border:1px solid rgba(128,0,0,0.2);border-radius:3px;
+  padding:5px 7px;font-size:11px;font-family:inherit;width:100%;
+}
+#tweaks .val{
+  font-variant-numeric:tabular-nums;
+  color:var(--maroon);font-weight:700;min-width:40px;text-align:right;
+}
+</style>
+</head>
+<body>
+
+<a class="banner" id="banner" href="https://infofrankrijk.com/belastingaangifte-2026-voor-het-jaar-2025/" target="_blank">
+
+  <div class="stamp">
+    <span class="stamp-label">Belastinggids</span>
+    <span class="stamp-year" id="year">2026</span>
+    <span class="stamp-sub">voor inkomsten <b id="income-year">2025</b></span>
+  </div>
+
+  <div class="content">
+    <div class="title" id="title">Belastinggids Frankrijk 2026</div>
+    <div class="subtitle" id="subtitle">Alle deadlines, vakcodes en wijzigingen voor de aangifte 2026 over de inkomsten 2025.</div>
+    <div class="chips" id="chips">
+      <span class="chip">Deadlines</span>
+      <span class="chip">Vakcodes</span>
+      <span class="chip">Wijzigingen</span>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <span class="cta-btn" id="cta">Lees de gids →</span>
+    <span class="cta-sub">Infofrankrijk.com</span>
+  </div>
+
+</a>
+
+<!-- Tweaks panel -->
+<div id="tweaks">
+  <div class="head">
+    <span>Tweaks</span>
+    <span id="height-badge" style="font-size:10px;opacity:0.7">— px</span>
+  </div>
+  <div class="body">
+    <label>
+      <span>Hoogte <span class="val" id="v-height">92px</span></span>
+      <input type="range" id="t-height" min="64" max="160" step="2" value="92">
+    </label>
+    <label>
+      <span>Titel-grootte <span class="val" id="v-title">15px</span></span>
+      <input type="range" id="t-title" min="11" max="20" step="0.5" value="15">
+    </label>
+    <label>
+      <span>Jaar-grootte <span class="val" id="v-year">32px</span></span>
+      <input type="range" id="t-year" min="20" max="52" step="1" value="32">
+    </label>
+    <label>
+      <span>Stempel-breedte <span class="val" id="v-stamp">118px</span></span>
+      <input type="range" id="t-stamp" min="80" max="170" step="2" value="118">
+    </label>
+    <label>
+      <span>CTA-titel</span>
+      <input type="text" id="t-cta" value="Lees de gids →">
+    </label>
+    <label>
+      <span>Link-URL</span>
+      <input type="url" id="t-url" value="https://infofrankrijk.com/belastingaangifte-2026-voor-het-jaar-2025/">
+    </label>
+  </div>
+</div>
+
+<script>
+const DEFAULTS = /*EDITMODE-BEGIN*/{
+  "height": 90,
+  "titleSize": 18,
+  "yearSize": 37,
+  "stampWidth": 134,
+  "ctaText": "Lees de gids →",
+  "linkUrl": "https:\/\/infofrankrijk.com\/belastingaangifte-2026-voor-het-jaar-2025\/"
+}/*EDITMODE-END*/;
+
+const state = {...DEFAULTS};
+const root = document.documentElement;
+const banner = document.getElementById('banner');
+const cta = document.getElementById('cta');
+
+function apply(){
+  root.style.setProperty('--height',     state.height + 'px');
+  root.style.setProperty('--title-size', state.titleSize + 'px');
+  root.style.setProperty('--year-size',  state.yearSize + 'px');
+  root.style.setProperty('--stamp-width',state.stampWidth + 'px');
+  cta.textContent = state.ctaText;
+  banner.href = state.linkUrl;
+  // reflect in tweaks UI
+  const $=id=>document.getElementById(id);
+  if($('t-height')){
+    $('t-height').value = state.height;
+    $('t-title').value  = state.titleSize;
+    $('t-year').value   = state.yearSize;
+    $('t-stamp').value  = state.stampWidth;
+    $('t-cta').value    = state.ctaText;
+    $('t-url').value    = state.linkUrl;
+    $('v-height').textContent = state.height + 'px';
+    $('v-title').textContent  = state.titleSize + 'px';
+    $('v-year').textContent   = state.yearSize + 'px';
+    $('v-stamp').textContent  = state.stampWidth + 'px';
+    $('height-badge').textContent = state.height + ' px';
+  }
+  // inform embedding host that iframe height changed
+  try{window.parent.postMessage({iframeHeight: state.height + 2},'*')}catch(e){}
+}
+apply();
+
+// ── Tweaks protocol ──
+const panel = document.getElementById('tweaks');
+window.addEventListener('message', e=>{
+  const d = e.data || {};
+  if(d.type === '__activate_edit_mode')   panel.classList.add('on');
+  if(d.type === '__deactivate_edit_mode') panel.classList.remove('on');
+});
+try{window.parent.postMessage({type:'__edit_mode_available'},'*')}catch(e){}
+
+function bind(id, key, cast){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('input', ()=>{
+    state[key] = cast ? cast(el.value) : el.value;
+    apply();
+    try{
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[key]: state[key]}},'*');
+    }catch(e){}
+  });
+}
+bind('t-height','height', Number);
+bind('t-title','titleSize', Number);
+bind('t-year','yearSize', Number);
+bind('t-stamp','stampWidth', Number);
+bind('t-cta','ctaText');
+bind('t-url','linkUrl');
+</script>
+
+</body>
+</html>
