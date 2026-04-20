@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<title>globe-loader demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f6f2ec;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1a1512;
+    padding: 40px 24px 80px;
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    max-width: 720px;
+    margin: 0 auto 8px;
+  }
+  p.lede {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    color: #8a8078;
+    font-size: 15px;
+  }
+  section {
+    max-width: 720px;
+    margin: 0 auto 48px;
+  }
+  h2 {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #800000;
+    margin: 0 0 16px;
+  }
+  pre {
+    background: #ece6dc;
+    border: 1px solid rgba(128,0,0,0.15);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    overflow-x: auto;
+    margin: 12px 0 0;
+  }
+  .row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+  <h1>&lt;globe-loader&gt;</h1>
+  <p class="lede">Een draaiende loader met de silhouetten van Nederland en Frankrijk.</p>
+
+  <section>
+    <h2>Standaard (Nederlands)</h2>
+    <globe-loader></globe-loader>
+<pre>&lt;globe-loader&gt;&lt;/globe-loader&gt;</pre>
+  </section>
+
+  <section>
+    <h2>Engelstalig, kleinere maat</h2>
+    <globe-loader lang="en" size="200"></globe-loader>
+<pre>&lt;globe-loader lang="en" size="200"&gt;&lt;/globe-loader&gt;</pre>
+  </section>
+
+  <section>
+    <h2>Compact (alleen de spinner)</h2>
+    <div class="row">
+      <globe-loader compact size="80"></globe-loader>
+      <globe-loader compact size="120" speed="slow"></globe-loader>
+      <globe-loader compact size="160" speed="fast"></globe-loader>
+    </div>
+<pre>&lt;globe-loader compact size="80"&gt;&lt;/globe-loader&gt;
+&lt;globe-loader compact size="120" speed="slow"&gt;&lt;/globe-loader&gt;
+&lt;globe-loader compact size="160" speed="fast"&gt;&lt;/globe-loader&gt;</pre>
+  </section>
+
+  <section>
+    <h2>Andere kleur</h2>
+    <globe-loader size="200" color="#1a4d3a"></globe-loader>
+<pre>&lt;globe-loader size="200" color="#1a4d3a"&gt;&lt;/globe-loader&gt;</pre>
+  </section>
+
+  <script src="globe-loader.js"></script>
+</body>
+</html>
