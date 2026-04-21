@@ -15,8 +15,8 @@
   --ink: #1a1512;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:220px;height:280px;background:transparent;font-family:'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);overflow:hidden;}
-.stage{width:220px;height:280px;display:block;padding:0;margin:0;}
+html,body{width:220px;height:340px;background:transparent;font-family:'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);overflow:hidden;}
+.stage{width:220px;height:340px;display:block;padding:0;margin:0;}
 
 .banner {
   width: 220px; height: 280px;
@@ -114,10 +114,11 @@ html,body{width:220px;height:280px;background:transparent;font-family:'Poppins',
 .word.on { opacity: 1; }
 
 .cta { display: block; text-align: center;
+  width: 220px; box-sizing: border-box;
   background: var(--maroon); color: #fff;
-  font-size: 10.5px; font-weight: 600;
-  padding: 7px 10px; border-radius: 8px;
-  text-decoration: none; letter-spacing: 0.02em; margin-top: 6px;
+  font-size: 11px; font-weight: 600;
+  padding: 10px 10px; border-radius: 8px;
+  text-decoration: none; letter-spacing: 0.02em; margin-top: 12px;
   position: relative; overflow: hidden;
   transition: background 0.2s, transform 0.2s;
 }
@@ -159,9 +160,9 @@ html,body{width:220px;height:280px;background:transparent;font-family:'Poppins',
         <div class="chip-row r"><button class="chip" data-i="2"></button></div>
       </div>
       <div class="answer-area empty" id="answer">Stel een vraag ↑</div>
-      <a class="cta" id="cta" href="https://www.cafeclaude.fr/" target="_blank" rel="noopener" onclick="event.stopPropagation()">MAAK KENNIS!</a>
     </div>
   </div>
+  <a class="cta" id="cta" href="https://www.cafeclaude.fr/" target="_blank" rel="noopener">MAAK KENNIS!</a>
 </div>
 <script>
 const TWEAKS = {
