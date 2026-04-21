@@ -16,6 +16,11 @@
   --year-size: 32px;
   --stamp-width: 118px;
   --cta-width: 145px;
+  --subtitle-size: 10.5px;
+  --chip-size: 9.5px;
+  --stamp-label-size: 9px;
+  --cup-size: 10px;
+  --content-pad: 8px 14px 8px 18px;
   --font-display: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'Mulish', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -53,7 +58,7 @@ html,body{
 }
 .stamp-label{
   font-family:var(--font-display);
-  font-size:9px;font-weight:600;letter-spacing:0.14em;
+  font-size:var(--stamp-label-size);font-weight:600;letter-spacing:0.14em;
   text-transform:uppercase;opacity:0.75;
   margin-bottom:1px;
 }
@@ -73,7 +78,7 @@ html,body{
 /* ── MIDDLE: content ── */
 .content{
   flex:1;display:flex;flex-direction:column;justify-content:center;
-  padding:8px 14px 8px 18px;
+  padding:var(--content-pad);
   min-width:0;
 }
 .title{
@@ -84,7 +89,7 @@ html,body{
   line-height:1.2;
 }
 .subtitle{
-  font-size:10.5px;color:#555;line-height:1.4;
+  font-size:var(--subtitle-size);color:#555;line-height:1.4;
   margin-bottom:6px;
   font-weight:400;
 }
@@ -94,7 +99,7 @@ html,body{
 .chip{
   display:inline-flex;align-items:center;gap:4px;
   font-family:var(--font-display);
-  font-size:9.5px;font-weight:600;color:var(--maroon);
+  font-size:var(--chip-size);font-weight:600;color:var(--maroon);
   background:#fff;
   border:1px solid rgba(128,0,0,0.15);
   padding:2px 7px;border-radius:10px;
@@ -212,8 +217,17 @@ html,body{
   </div>
   <div class="body">
     <label>
+      <span>Preset</span>
+      <select id="t-preset" style="padding:5px 7px;border:1px solid rgba(128,0,0,0.2);border-radius:3px;font-size:11px;font-family:inherit">
+        <option value="compact">Compact (64px)</option>
+        <option value="normal" selected>Normaal (92px)</option>
+        <option value="groot">Groot (128px)</option>
+        <option value="custom">Handmatig</option>
+      </select>
+    </label>
+    <label>
       <span>Hoogte <span class="val" id="v-height">92px</span></span>
-      <input type="range" id="t-height" min="64" max="160" step="2" value="92">
+      <input type="range" id="t-height" min="48" max="160" step="2" value="92">
     </label>
     <label>
       <span>Titel-grootte <span class="val" id="v-title">15px</span></span>
@@ -240,10 +254,10 @@ html,body{
 
 <script>
 const DEFAULTS = /*EDITMODE-BEGIN*/{
-  "height": 90,
-  "titleSize": 18,
-  "yearSize": 37,
-  "stampWidth": 134,
+  "height": 64,
+  "titleSize": 12.5,
+  "yearSize": 22,
+  "stampWidth": 100,
   "ctaText": "Lees de gids →",
   "linkUrl": "https:\/\/infofrankrijk.com\/belastingaangifte-2026-voor-het-jaar-2025\/"
 }/*EDITMODE-END*/;
@@ -258,6 +272,16 @@ function apply(){
   root.style.setProperty('--title-size', state.titleSize + 'px');
   root.style.setProperty('--year-size',  state.yearSize + 'px');
   root.style.setProperty('--stamp-width',state.stampWidth + 'px');
+  // derive other sizes so the banner scales gracefully
+  const h = state.height;
+  const pad = h < 70 ? '4px 10px 4px 12px' : h < 100 ? '8px 14px 8px 18px' : '12px 18px 12px 22px';
+  const labelSize = h < 70 ? 7.5 : h < 100 ? 9 : 10;
+  const subtitleSize = h < 70 ? 9.5 : h < 100 ? 10.5 : 12;
+  const chipSize = h < 70 ? 8.5 : h < 100 ? 9.5 : 11;
+  root.style.setProperty('--content-pad', pad);
+  root.style.setProperty('--stamp-label-size', labelSize + 'px');
+  root.style.setProperty('--subtitle-size', subtitleSize + 'px');
+  root.style.setProperty('--chip-size', chipSize + 'px');
   cta.textContent = state.ctaText;
   banner.href = state.linkUrl;
   // reflect in tweaks UI
@@ -306,6 +330,25 @@ bind('t-year','yearSize', Number);
 bind('t-stamp','stampWidth', Number);
 bind('t-cta','ctaText');
 bind('t-url','linkUrl');
+
+// Preset dropdown
+const PRESETS = {
+  compact: { height: 64,  titleSize: 12.5, yearSize: 22, stampWidth: 100 },
+  normal:  { height: 92,  titleSize: 15,   yearSize: 32, stampWidth: 118 },
+  groot:   { height: 128, titleSize: 19,   yearSize: 44, stampWidth: 150 },
+};
+const presetEl = document.getElementById('t-preset');
+if(presetEl){
+  presetEl.addEventListener('change', ()=>{
+    const p = PRESETS[presetEl.value];
+    if(!p) return; // custom
+    Object.assign(state, p);
+    apply();
+    try{
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits:p},'*');
+    }catch(e){}
+  });
+}
 </script>
 
 </body>
